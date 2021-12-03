@@ -1,0 +1,18 @@
+---
+# Change as needed
+galaxy_info:
+  author: Chris Ruettimann
+  role_name: joe-speedboat.template
+  description: <DESCRIPTION_xxx>
+  min_ansible_version: 2.9
+  license: GPLv3
+  platforms:
+  - name: EL
+    versions:
+    - 7
+    - 8
+  galaxy_tags: []
+
+# We don't use dependencies in here anymore
+dependencies: []
+...
