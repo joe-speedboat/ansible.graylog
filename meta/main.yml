@@ -1,21 +1,17 @@
 ---
-# Change as needed
 galaxy_info:
   author: Chris Ruettimann
+  company: Bitbull Community
   role_name: graylog
-  description: Install graylog and configure single server instance: JUST TESTING YET
+  description: installation and configuration of graylog: TESTING
   min_ansible_version: 2.11
   license: GPLv3
   platforms:
   - name: EL
     versions:
     - 8
-  galaxy_tags:
-  - system
-  - syslog
-  - graylog
-
-
-# We don't use dependencies in here anymore
+  galaxy_tags: 
+  - elasticsearch
+# We don't use dependencies in here anymore, look into the ```roles/requirements.yml```
 dependencies: []
 ...

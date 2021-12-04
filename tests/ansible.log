@@ -39,3 +39,15 @@ The offending line appears to be:
 2021-12-04 17:24:22,367 p=415211 u=chris n=ansible | [WARNING]: - joe-speedboat.graylog was NOT installed successfully: - sorry, joe-speedboat.graylog was not found on https://galaxy.ansible.com/api/.
 
 2021-12-04 17:24:22,368 p=415211 u=chris n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.
+2021-12-04 17:26:54,523 p=415782 u=chris n=ansible | Starting galaxy role install process
+2021-12-04 17:26:54,523 p=415782 u=chris n=ansible | - downloading role 'graylog', owned by joe-speedboat
+2021-12-04 17:26:55,332 p=415782 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.graylog/archive/master.tar.gz
+2021-12-04 17:26:55,935 p=415782 u=chris n=ansible | [WARNING]: - joe-speedboat.graylog was NOT installed successfully: this role does not appear to have a valid meta/main.yml file.
+
+2021-12-04 17:26:55,935 p=415782 u=chris n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.
+2021-12-04 17:27:08,524 p=415875 u=chris n=ansible | Starting galaxy role install process
+2021-12-04 17:27:08,524 p=415875 u=chris n=ansible | - downloading role 'graylog', owned by joe-speedboat
+2021-12-04 17:27:09,755 p=415875 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.graylog/archive/master.tar.gz
+2021-12-04 17:27:10,156 p=415875 u=chris n=ansible | [WARNING]: - joe-speedboat.graylog was NOT installed successfully: this role does not appear to have a valid meta/main.yml file.
+
+2021-12-04 17:27:10,156 p=415875 u=chris n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.
