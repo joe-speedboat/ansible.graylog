@@ -1,8 +1,60 @@
 ---
-# Here belong all variables, that can be changed by a vars-file,
-# a playbook or a include.
+# joe-speedboat.graylog/defaults/main.yml
+# --- ELASTIC SEARCH ---
+# leave "auto" for auto configuration:
+#    single node -> default config of graylog: http://127.0.0.1:9200
+#    cluster     -> depending on configuration of role joe-speedboat.elastic_easy
+#                   - members of inventory group "elastic" except they have "ee_is_master = false"
+#                     eg: http://e1:9200,http://e2:9200,http://e3:9200
+graylog_elasticsearch_hosts: 'auto'
 
-mandatory_default_var1xxx: playbook-will-fail-with-this-var
-default_var2_xxx: this_is_defined_in_defaults_folder
+graylog_elasticsearch_shards: 1
 
+# --- MONGODB CONFIG ---
+# leave "auto" for auto configuration:
+#    single node -> mongodb://localhost/{{ graylog_cluster_name }}
+#    cluster     -> depending on configuration of role joe-speedboat.mongo_easy
+#                   - members of inventory group "mongo"
+#                   - var "user" is set to {{ graylog_cluster_name }}
+#                   - var "mongo_graylog_password"
+#                   eg: mongodb://user:pass@m1:27017,m2:27017,m3:27017/graylog?replicaSet=graylog
+graylog_mongodb_uri: 'auto'
+
+# --- GRAYLOG CLUSTER SETTING ---
+# leave "auto" for auto configuration:
+# single node -> is_master = true
+# cluster     -> on first node of inventory group "graylog":
+#                  is_master = true
+#                on other nodes of inventory group "graylog":
+#                  is_master = false
+graylog_is_master: 'auto'
+
+# --- GENERAL CONFIG ---
+graylog_hostname: "servername.domain.local"
+graylog_root_email: "graylogadmin@example.com"
+graylog_admin_password: "graylog"
+graylog_root_timezone: "Europe/Zurich"
+graylog_allow_highlighting: true
+graylog_dashboard_widget_default_cache_time: 60s
+graylog_install_enterprise_plugin: false
+graylog_cluster_name: "graylog"
+
+# --- JVM HEAP SIZE ---
+graylog_jvm_graylog_heapmax: "{{ (ansible_memtotal_mb/2-1024)|round|int }}m"
+graylog_jvm_graylog_heap: "{{ (ansible_memtotal_mb/2-2048)|round|int }}m"
+
+# --- MAIL CONFIG ---
+graylog_transport_email_enabled: false
+graylog_transport_email_hostname: mail.example.com
+graylog_transport_email_port: 25
+graylog_transport_email_use_auth: false
+graylog_transport_email_use_tls: false
+graylog_transport_email_use_ssl: false
+graylog_transport_email_auth_username: "you@example.com"
+graylog_transport_email_auth_password:  "secret"
+graylog_transport_email_subject_prefix: "[graylog]"
+graylog_transport_email_from_email: "graylog@example.com"
+
+# rpm repository release version
+graylog_version: "4.2"
 ...

@@ -1,0 +1,18 @@
+me_mongodb_users:
+- { 
+  name: "{{ graylog_cluster_name }}",
+  password: "{{ mongo_graylog_password }}",
+  roles: readWrite,
+  database: admin
+  } 
+- {
+  name: "{{ graylog_cluster_name }}",
+  password: "{{ mongo_graylog_password }}",
+  roles: readWrite,
+  database: "{{ graylog_cluster_name }}"
+  }
+
+me_mongodb_user_admin_password: "{{ mongo_admin_password }}"
+me_mongodb_root_admin_password: "{{ mongo_admin_password }}"
+me_mongodb_root_backup_password: "{{ mongo_admin_password }}"
+me_mongodb_replication_replset: "{{ graylog_cluster_name }}"

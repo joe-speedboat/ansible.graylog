@@ -1,0 +1,41 @@
+2021-12-04 17:23:20,007 p=414746 u=chris n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: single-node
+
+2021-12-04 17:23:20,007 p=414746 u=chris n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2021-12-04 17:23:25,115 p=414783 u=chris n=ansible | [WARNING]: Platform linux on host test01 is using the discovered Python interpreter at /usr/libexec/platform-python, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.11/reference_appendices/interpreter_discovery.html for more information.
+
+2021-12-04 17:23:25,115 p=414783 u=chris n=ansible | test01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-04 17:23:44,060 p=414945 u=chris n=ansible | [WARNING]: Platform linux on host test01 is using the discovered Python interpreter at /usr/libexec/platform-python, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.11/reference_appendices/interpreter_discovery.html for more information.
+
+2021-12-04 17:23:44,061 p=414945 u=chris n=ansible | test01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2021-12-04 17:23:51,515 p=415024 u=chris n=ansible | ERROR! the playbook: single_node could not be found
+2021-12-04 17:24:00,171 p=415067 u=chris n=ansible | ERROR! the role 'joe-speedboat.elastic_easy' was not found in /etc/ansible/roles/joe-speedboat.graylog/tests/roles:/etc/ansible/roles/joe-speedboat.graylog/tests/roles:/etc/ansible/roles/joe-speedboat.graylog/tests
+
+The error appears to be in '/etc/ansible/roles/joe-speedboat.graylog/tests/site_single.yml': line 22, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+  - joe-speedboat.elastic_easy
+    ^ here
+
+2021-12-04 17:24:21,829 p=415211 u=chris n=ansible | Starting galaxy role install process
+2021-12-04 17:24:21,830 p=415211 u=chris n=ansible | - downloading role 'graylog', owned by joe-speedboat
+2021-12-04 17:24:22,367 p=415211 u=chris n=ansible | [WARNING]: - joe-speedboat.graylog was NOT installed successfully: - sorry, joe-speedboat.graylog was not found on https://galaxy.ansible.com/api/.
+
+2021-12-04 17:24:22,368 p=415211 u=chris n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.

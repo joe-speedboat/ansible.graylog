@@ -1,0 +1,14 @@
+---
+
+- name: Install graylog packages
+  dnf:
+    name: "{{ graylog_packages }}"
+    state: installed
+
+- name: Install graylog enterprise plugin
+  dnf:
+    name: "{{ graylog_packages_enterprise }}"
+    state: installed
+  when: graylog_install_enterprise_plugin == true
+
+...
