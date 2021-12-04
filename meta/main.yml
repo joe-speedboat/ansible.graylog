@@ -1,11 +1,10 @@
 ---
 # Change as needed
 galaxy_info:
-  author: uniQconsulting ag
-  company: uniqconsulting
+  author: Chris Ruettimann
   role_name: graylog
-  description: Install graylog and configure single server instance
-  min_ansible_version: 2.4
+  description: Install graylog and configure single server instance: JUST TESTING YET
+  min_ansible_version: 2.11
   license: GPLv3
   platforms:
   - name: EL
