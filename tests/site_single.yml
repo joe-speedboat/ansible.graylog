@@ -6,7 +6,7 @@
     dnf:
       name:
       - nftables
-      - firewalld:
+      - firewalld
       state: absent
   - name: disable selinux
     shell: setenforce 0

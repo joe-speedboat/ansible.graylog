@@ -51,3 +51,34 @@ The offending line appears to be:
 2021-12-04 17:27:10,156 p=415875 u=chris n=ansible | [WARNING]: - joe-speedboat.graylog was NOT installed successfully: this role does not appear to have a valid meta/main.yml file.
 
 2021-12-04 17:27:10,156 p=415875 u=chris n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.
+2021-12-04 17:31:08,138 p=416815 u=chris n=ansible | Starting galaxy role install process
+2021-12-04 17:31:08,138 p=416815 u=chris n=ansible | - downloading role 'graylog', owned by joe-speedboat
+2021-12-04 17:31:08,700 p=416815 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.graylog/archive/master.tar.gz
+2021-12-04 17:31:09,297 p=416815 u=chris n=ansible | - extracting joe-speedboat.graylog to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog
+2021-12-04 17:31:09,302 p=416815 u=chris n=ansible | - joe-speedboat.graylog (master) was installed successfully
+2021-12-04 17:31:09,303 p=416815 u=chris n=ansible | - downloading role 'mongo_easy', owned by joe-speedboat
+2021-12-04 17:31:10,048 p=416815 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.mongo_easy/archive/main.tar.gz
+2021-12-04 17:31:10,601 p=416815 u=chris n=ansible | - extracting joe-speedboat.mongo_easy to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.mongo_easy
+2021-12-04 17:31:10,604 p=416815 u=chris n=ansible | - joe-speedboat.mongo_easy (main) was installed successfully
+2021-12-04 17:31:10,604 p=416815 u=chris n=ansible | - downloading role 'elastic_easy', owned by joe-speedboat
+2021-12-04 17:31:11,983 p=416815 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.elastic_easy/archive/main.tar.gz
+2021-12-04 17:31:12,546 p=416815 u=chris n=ansible | - extracting joe-speedboat.elastic_easy to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.elastic_easy
+2021-12-04 17:31:12,549 p=416815 u=chris n=ansible | - joe-speedboat.elastic_easy (main) was installed successfully
+2021-12-04 17:31:12,550 p=416815 u=chris n=ansible | - downloading role 'mongodb', owned by undergreen
+2021-12-04 17:31:13,126 p=416815 u=chris n=ansible | - downloading role from https://github.com/UnderGreen/ansible-role-mongodb/archive/v2.7.0.tar.gz
+2021-12-04 17:31:13,668 p=416815 u=chris n=ansible | - extracting undergreen.mongodb to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/undergreen.mongodb
+2021-12-04 17:31:13,677 p=416815 u=chris n=ansible | - undergreen.mongodb (v2.7.0) was installed successfully
+2021-12-04 17:31:13,678 p=416815 u=chris n=ansible | - downloading role 'elasticsearch', owned by elastic
+2021-12-04 17:31:14,828 p=416815 u=chris n=ansible | - downloading role from https://github.com/elastic/ansible-elasticsearch/archive/v7.15.1.tar.gz
+2021-12-04 17:31:15,289 p=416815 u=chris n=ansible | - extracting elastic.elasticsearch to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/elastic.elasticsearch
+2021-12-04 17:31:15,303 p=416815 u=chris n=ansible | - elastic.elasticsearch (v7.15.1) was installed successfully
+2021-12-04 17:31:20,043 p=416902 u=chris n=ansible | PLAY [prepare test env] **********************************************************************************************************************************************************************************
+2021-12-04 17:31:20,071 p=416902 u=chris n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2021-12-04 17:31:22,106 p=416902 u=chris n=ansible | [WARNING]: Platform linux on host test01 is using the discovered Python interpreter at /usr/libexec/platform-python, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.11/reference_appendices/interpreter_discovery.html for more information.
+
+2021-12-04 17:31:22,106 p=416902 u=chris n=ansible | ok: [test01]
+2021-12-04 17:31:22,123 p=416902 u=chris n=ansible | TASK [remove firewalling] ********************************************************************************************************************************************************************************
+2021-12-04 17:31:23,600 p=416902 u=chris n=ansible | fatal: [test01]: FAILED! => {"changed": false, "msg": "It appears that a space separated string of packages was passed in as an argument. To operate on several packages, pass a comma separated string of packages or a list of packages."}
+2021-12-04 17:31:23,603 p=416902 u=chris n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************
+2021-12-04 17:31:23,603 p=416902 u=chris n=ansible | test01                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
