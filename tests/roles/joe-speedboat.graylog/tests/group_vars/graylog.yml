@@ -1,5 +1,0 @@
-graylog_hostname: "graylog.sun.bitbull.ch"
-graylog_root_timezone: "Europe/Zurich"
-graylog_allow_highlighting: true
-graylog_dashboard_widget_default_cache_time: 60s
-

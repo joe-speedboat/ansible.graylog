@@ -1,6 +1,0 @@
----
-- name: configure elasticsearch single node
-  hosts: single_node
-  roles:
-  - joe-speedboat.elastic_easy
-...

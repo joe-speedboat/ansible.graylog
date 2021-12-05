@@ -1,8 +1,0 @@
----
-
-- name: Install Graylog Repositry
-  dnf:
-    name: "{{ graylog_repo_graylog_rpm }}"
-    disable_gpg_check: true
-
-...

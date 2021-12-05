@@ -28,7 +28,7 @@
   lineinfile:
     path: /etc/graylog/server/server.conf
     regexp: '^http_bind_address'
-    line: 'http_bind_address = 127.0.0.1:9000'
+    line: 'http_bind_address = {{ graylog_http_bind_address }}'
   notify: restart graylog
 
 - name: Set root Timezone

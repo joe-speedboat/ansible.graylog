@@ -30,4 +30,5 @@
   hosts: single_node
   roles:
   - joe-speedboat.graylog
+  - joe-speedboat.nginx_rp
 

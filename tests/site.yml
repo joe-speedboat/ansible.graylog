@@ -30,4 +30,5 @@
   hosts: graylog
   roles:
   - joe-speedboat.graylog
+  - joe-speedboat.nginx_rp
 

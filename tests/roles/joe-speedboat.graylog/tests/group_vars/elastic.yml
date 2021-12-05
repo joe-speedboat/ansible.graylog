@@ -1,3 +1,0 @@
-ee_action_auto_create_index: false
-ee_cluster_name: "{{ graylog_cluster_name }}"
-

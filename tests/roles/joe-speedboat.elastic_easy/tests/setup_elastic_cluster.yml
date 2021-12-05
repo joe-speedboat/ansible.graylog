@@ -1,6 +1,0 @@
----
-- name: configure elasticsearch cluster
-  hosts: elastic
-  roles:
-  - joe-speedboat.elastic_easy
-...

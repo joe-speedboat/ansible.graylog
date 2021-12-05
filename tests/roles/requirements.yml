@@ -1,5 +1,6 @@
----    
+---
 - src: joe-speedboat.graylog
+- src: joe-speedboat.nginx_rp
 - src: joe-speedboat.mongo_easy
 - src: joe-speedboat.elastic_easy
 

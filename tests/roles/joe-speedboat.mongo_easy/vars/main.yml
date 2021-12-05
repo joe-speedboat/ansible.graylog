@@ -1,6 +1,0 @@
----
-# vars file for joe-speedboat.mongo_easy
-
-# this is same as mongodb_security_keyfile in role undergreen.mongodb
-# i need that value to automate the generation process
-es_mongodb_security_keyfile: /etc/mongodb-keyfile

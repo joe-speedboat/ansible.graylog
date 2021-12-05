@@ -1,6 +1,0 @@
-graylog_cluster_name: graylog
-
-graylog_admin_password: What4Ever.
-mongo_admin_password: What3Ever.
-mongo_graylog_password: What2Do.
-
