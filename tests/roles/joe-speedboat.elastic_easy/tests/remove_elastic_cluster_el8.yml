@@ -1,0 +1,23 @@
+---
+- hosts: elastic
+  tasks:
+  - name: this will erase all your elasticsearch data and configuration, ARE YOU SURE?
+    pause:
+      minutes: 1
+  - dnf:
+      name: "{{ item }}"
+      state: absent
+    with_items:
+    - elasticsearch
+    - nftables
+    - firewalld
+  - shell:
+      rm -rf "{{ item }}"
+    with_items:
+    - /etc/elasticsearch
+    - /etc/sysconfig/elasticsearch
+    - /var/lib/elasticsearch
+    - /var/log/elasticsearch
+    - /usr/share/elasticsearch
+  - shell:
+      reboot

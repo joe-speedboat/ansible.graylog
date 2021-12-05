@@ -13030,28 +13030,3 @@ https://docs.ansible.com/ansible-core/2.11/reference_appendices/interpreter_disc
 2021-12-05 12:28:36,976 p=680927 u=chris n=ansible | test01                     : ok=160  changed=5    unreachable=0    failed=0    skipped=315  rescued=0    ignored=1   
 2021-12-05 12:28:36,977 p=680927 u=chris n=ansible | test02                     : ok=154  changed=10   unreachable=0    failed=0    skipped=251  rescued=0    ignored=0   
 2021-12-05 12:28:36,977 p=680927 u=chris n=ansible | test03                     : ok=90   changed=2    unreachable=0    failed=0    skipped=244  rescued=0    ignored=0   
-2021-12-05 12:45:19,032 p=694354 u=chris n=ansible | Starting galaxy role install process
-2021-12-05 12:45:19,032 p=694354 u=chris n=ansible | - downloading role 'graylog', owned by joe-speedboat
-2021-12-05 12:45:19,881 p=694354 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.graylog/archive/master.tar.gz
-2021-12-05 12:45:20,605 p=694354 u=chris n=ansible | - extracting joe-speedboat.graylog to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog
-2021-12-05 12:45:20,618 p=694354 u=chris n=ansible | - joe-speedboat.graylog (master) was installed successfully
-2021-12-05 12:45:20,618 p=694354 u=chris n=ansible | - downloading role 'nginx_rp', owned by joe-speedboat
-2021-12-05 12:45:21,650 p=694354 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.nginx_rp/archive/master.tar.gz
-2021-12-05 12:45:22,207 p=694354 u=chris n=ansible | - extracting joe-speedboat.nginx_rp to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.nginx_rp
-2021-12-05 12:45:22,210 p=694354 u=chris n=ansible | - joe-speedboat.nginx_rp (master) was installed successfully
-2021-12-05 12:45:22,210 p=694354 u=chris n=ansible | - downloading role 'mongo_easy', owned by joe-speedboat
-2021-12-05 12:45:22,941 p=694354 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.mongo_easy/archive/main.tar.gz
-2021-12-05 12:45:23,472 p=694354 u=chris n=ansible | - extracting joe-speedboat.mongo_easy to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.mongo_easy
-2021-12-05 12:45:23,475 p=694354 u=chris n=ansible | - joe-speedboat.mongo_easy (main) was installed successfully
-2021-12-05 12:45:23,475 p=694354 u=chris n=ansible | - downloading role 'elastic_easy', owned by joe-speedboat
-2021-12-05 12:45:24,426 p=694354 u=chris n=ansible | - downloading role from https://github.com/joe-speedboat/ansible.elastic_easy/archive/main.tar.gz
-2021-12-05 12:45:24,957 p=694354 u=chris n=ansible | - extracting joe-speedboat.elastic_easy to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.elastic_easy
-2021-12-05 12:45:24,960 p=694354 u=chris n=ansible | - joe-speedboat.elastic_easy (main) was installed successfully
-2021-12-05 12:45:24,960 p=694354 u=chris n=ansible | - downloading role 'mongodb', owned by undergreen
-2021-12-05 12:45:25,695 p=694354 u=chris n=ansible | - downloading role from https://github.com/UnderGreen/ansible-role-mongodb/archive/v2.7.0.tar.gz
-2021-12-05 12:45:26,228 p=694354 u=chris n=ansible | - extracting undergreen.mongodb to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/undergreen.mongodb
-2021-12-05 12:45:26,236 p=694354 u=chris n=ansible | - undergreen.mongodb (v2.7.0) was installed successfully
-2021-12-05 12:45:26,237 p=694354 u=chris n=ansible | - downloading role 'elasticsearch', owned by elastic
-2021-12-05 12:45:28,096 p=694354 u=chris n=ansible | - downloading role from https://github.com/elastic/ansible-elasticsearch/archive/v7.15.1.tar.gz
-2021-12-05 12:45:28,670 p=694354 u=chris n=ansible | - extracting elastic.elasticsearch to /etc/ansible/roles/joe-speedboat.graylog/tests/roles/elastic.elasticsearch
-2021-12-05 12:45:28,686 p=694354 u=chris n=ansible | - elastic.elasticsearch (v7.15.1) was installed successfully

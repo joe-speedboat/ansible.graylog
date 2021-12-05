@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  vars:
+  - nginx_ssl_rp_path: /
+  - nginx_proxy_pass_url: 'http://127.0.0.1:80'
+
+  roles:
+  - role: joe-speedboat.nginx-rp
+...

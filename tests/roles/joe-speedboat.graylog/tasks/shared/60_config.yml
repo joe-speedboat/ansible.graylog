@@ -1,0 +1,222 @@
+---
+
+### graylog admin password
+- name: Configure Graylog admin password if needed
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^root_password_sha2'
+    line: root_password_sha2 = {{ graylog_admin_password|hash('sha256')}}
+  notify: restart graylog
+  register: password_change_task
+
+- name: Check if password salt is present (check length)
+  shell: "grep 'password_secret =' /etc/graylog/server/server.conf | tail -1 | wc -c"
+  register: graylog_password_secret_length
+  changed_when: false
+
+- name: Configure Graylog password salt
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^password_secret'
+    line: password_secret = {{ lookup('password', '/dev/null length=96 chars=ascii_letters') }}
+  changed_when: false
+  when: graylog_password_secret_length.stdout|int < 80
+  notify: restart graylog
+
+### graylog config settings
+- name: Set Graylog web listen uri
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^http_bind_address'
+    line: 'http_bind_address = {{ graylog_http_bind_address }}'
+  notify: restart graylog
+
+- name: Set root Timezone
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^root_timezone'
+    line: 'root_timezone = {{ graylog_root_timezone }}'
+  notify: restart graylog
+
+- name: Configure Graylog root email
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^root_email'
+    line: 'root_email = {{ graylog_root_email }}'
+  notify: restart graylog
+
+- name: Configure Graylog root email
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^root_email'
+    line: 'root_email = {{ graylog_root_email }}'
+  notify: restart graylog
+
+- name: Configure Graylog http_enable_gzip
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^http_enable_gzip'
+    line: 'http_enable_gzip = true'
+  notify: restart graylog
+
+- name: Configure Graylog allow_highlighting
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^allow_highlighting'
+    line: 'allow_highlighting = {{ graylog_allow_highlighting }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_enabled
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_enabled'
+    line: 'transport_email_enabled = {{ graylog_transport_email_enabled }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_hostname
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_hostname'
+    line: 'transport_email_hostname = {{ graylog_transport_email_hostname }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_port
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_port'
+    line: 'transport_email_port = {{ graylog_transport_email_port }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_use_auth
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_use_auth'
+    line: 'transport_email_use_auth = {{ graylog_transport_email_use_auth }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_use_tls
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_use_tls'
+    line: 'transport_email_use_tls = {{ graylog_transport_email_use_tls }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_use_ssl
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_use_ssl'
+    line: 'transport_email_use_ssl = {{ graylog_transport_email_use_ssl }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_auth_username
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_auth_username'
+    line: 'transport_email_auth_username = {{ graylog_transport_email_auth_username }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_auth_password
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_auth_password'
+    line: 'transport_email_auth_password = {{ graylog_transport_email_auth_password }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_subject_prefix
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_subject_prefix'
+    line: 'transport_email_subject_prefix = {{ graylog_transport_email_subject_prefix }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_from_email
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_from_email'
+    line: 'transport_email_from_email = {{ graylog_transport_email_from_email }}'
+  notify: restart graylog
+
+- name: Configure Graylog transport_email_web_interface_url
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^transport_email_web_interface_url'
+    line: 'transport_email_web_interface_url = {{ graylog_transport_email_web_interface_url }}'
+  notify: restart graylog
+
+- name: Configure Graylog dashboard_widget_default_cache_time
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^dashboard_widget_default_cache_time'
+    line: 'dashboard_widget_default_cache_time = {{ graylog_dashboard_widget_default_cache_time }}'
+  notify: restart graylog
+
+### mongodb
+- name: Configure Graylog mongodb_uri
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^mongodb_uri'
+    line: "mongodb_uri = {{ graylog_mongodb_uri }}"
+  notify: restart graylog
+
+### elasticsearch
+- name: enable elasticsearch shrads
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^elasticsearch_shards'
+    line: 'elasticsearch_shards = {{ graylog_elasticsearch_shards }}'
+  notify: restart graylog
+
+- name: set graylog elasticsearch cluster name
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^elasticsearch_cluster_name'
+    line: 'elasticsearch_cluster_name = {{ graylog_cluster_name }}'
+  notify: restart graylog
+
+- name: Configure Graylog elasticsearch_hosts
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^elasticsearch_hosts'
+    line: "elasticsearch_hosts = {{ graylog_elasticsearch_hosts }}"
+  notify: restart graylog
+
+### graylog cluster master
+- name: Configure Graylog Cluster Master/Slave
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    regexp: '^is_master'
+    line: "is_master = {{ graylog_is_master }}"
+  notify: restart graylog
+
+### graylog heap size
+- name: Configure graylog heap-size
+  replace:
+    path: /etc/sysconfig/graylog-server
+    regexp: '-Xms([-0-9]+[kmgtKMGT])'
+    replace: "-Xms{{ graylog_jvm_graylog_heap }} "
+  notify: restart graylog
+
+- name: Configure graylog heap-size
+  replace:
+    path: /etc/sysconfig/graylog-server
+    regexp: '-Xmx([-0-9]+[kmgtKMGT])'
+    replace: "-Xmx{{ graylog_jvm_graylog_heapmax }} "
+  notify: restart graylog
+
+### service settings
+- name: Enable and start Graylog server
+  service:
+    name: graylog-server
+    enabled: yes
+    state: restarted
+  when: password_change_task.changed
+  
+- name: Enable and start Graylog server
+  service:
+    name: graylog-server
+    enabled: yes
+    state: started
+  notify: restart graylog
+  when: not password_change_task.changed
+
+...

@@ -1,0 +1,21 @@
+---
+- name: define elasticsearch_hosts AUTO settings for cluster
+  block:
+  - name: find hosts with ee_is_master=true in hostvars of inventory group elastic
+    set_fact:
+      elastic_masters: "{{ elastic_masters|default(['']) + [ hostvars[item]['inventory_hostname_short'] ]}}"
+    with_items: "{{ groups['elastic'] }}"
+    when: "hostvars[item]['ee_is_master']|default('true')|bool is true"
+  - name: define configuration string for AUTO mode
+    set_fact:
+      graylog_elasticsearch_hosts: "http://{{ elastic_masters|select()|unique|join(':9200,http://') }}:9200"
+  when: (( ansible_play_hosts_all|length ) > 1 ) and graylog_elasticsearch_hosts == 'auto'
+
+- name: debug xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  debug: var=elastic_masters
+
+- name: define elasticsearch_hosts AUTO settings for single-node
+  set_fact:
+    graylog_elasticsearch_hosts: "http://127.0.0.1:9200"
+  when: (( ansible_play_hosts_all|length ) == 1 ) and graylog_elasticsearch_hosts == 'auto'
+...

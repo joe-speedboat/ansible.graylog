@@ -1,0 +1,6 @@
+---
+- name: Install Open JDK
+  dnf:
+    name: "{{ graylog_packages_java }}"
+    state: installed
+...

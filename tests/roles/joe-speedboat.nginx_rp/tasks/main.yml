@@ -1,0 +1,41 @@
+---
+# tasks file for joe-speedboat.nginx-rp
+- name: install nginx packages
+  yum:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ nginx_packages_EL }}'
+
+- name: create /etc/nginx/nginx.conf
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: nginx
+    mode: 640
+
+- name: create /etc/nginx/conf.d/ssl-offloading.conf
+  template:
+    src: ssl-offloading.conf.j2
+    dest: /etc/nginx/conf.d/ssl-offloading.conf
+    owner: root
+    group: nginx
+    mode: 0640
+
+- name: create /usr/local/sbin/create-cert.sh
+  template:
+    src: create-cert.sh.j2
+    dest: /usr/local/sbin/create-cert.sh
+    owner: root
+    group: root
+    mode: 0700
+
+- name: Create self signed cert if needed
+  shell: /usr/local/sbin/create-cert.sh
+  changed_when: false
+
+- service:
+    name: nginx
+    state: started
+    enabled: yes
+    
