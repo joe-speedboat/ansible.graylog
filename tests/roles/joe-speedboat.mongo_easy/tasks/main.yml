@@ -1,0 +1,79 @@
+---
+# tasks file for joe-speedboat.mongo_easy
+- name: avoid two node clusters
+  fail:
+    msg: "******** CLUSTER NEEDS AT LEAST 3 NODES, GO HOME ********"
+  when: (ansible_play_hosts_all|length) == 2
+  run_once: true
+- name: execute cluster setup
+  block:
+  - name: set first inventory node to mongodb_master
+    set_fact:
+      mongodb_master: true
+    when: inventory_hostname in ansible_play_hosts_all[0]
+  - name: set mongodb_login_host to first host
+    set_fact:
+      me_mongodb_login_host: "{{ ansible_play_hosts_all[0]}}"
+  - name: set mongodb_replication_params with all hosts as member
+    set_fact:
+      me_mongodb_replication_params: "{{ me_mongodb_replication_params|default([]) + [ { 'host_name': node } ] }}"
+    loop: "{{ ansible_play_hosts_all }}"
+    loop_control:
+      loop_var: node
+ 
+  - name: read me_mongodb_security_keyfile on first node
+    slurp:
+      src: "{{ me_mongodb_security_keyfile }}"
+    delegate_to: "{{ me_mongodb_login_host }}"
+    run_once: true
+    ignore_errors: yes
+    register: me_mongodb_keyfile_content_read
+
+  - name: prepare me_mongodb_keyfile_content
+    set_fact:
+      me_mongodb_keyfile_content: "{{ me_mongodb_keyfile_content_read['content']|b64decode }}"
+    when: not me_mongodb_keyfile_content_read['failed']
+  
+  - name: generate random string for keyfile
+    set_fact:
+      me_mongodb_keyfile_content: "{{ lookup('password', '/dev/null length=741 chars=ascii_letters,digits,+/') }}"
+    run_once: true
+    delegate_to: localhost
+    when: me_mongodb_keyfile_content_read['failed']
+
+  - name: run role undergreen.mongodb role cluster
+    include_role:
+      name: undergreen.mongodb
+    vars:
+      mongodb_storage_dbpath: "{{ me_mongodb_storage_dbpath }}"
+      mongodb_replication_replset: "{{ me_mongodb_replication_replset }}"
+      mongodb_login_host: "{{ me_mongodb_login_host }}"
+      mongodb_replication_params: "{{ me_mongodb_replication_params }}"
+      mongodb_keyfile_content: "{{ me_mongodb_keyfile_content }}"
+      mongodb_net_bindip: "{{ me_mongodb_net_bindip }}"
+      mongodb_security_authorization: "{{ me_mongodb_security_authorization }}"
+      mongodb_users: "{{ me_mongodb_users }}"
+      mongodb_user_admin_name: "{{ me_mongodb_user_admin_name }}"
+      mongodb_user_admin_password: "{{ me_mongodb_user_admin_password }}"
+      mongodb_root_admin_name: "{{ me_mongodb_root_admin_name }}"
+      mongodb_root_admin_password: "{{ me_mongodb_root_admin_password }}"
+      mongodb_root_backup_name: "{{ me_mongodb_root_backup_name }}"
+      mongodb_root_backup_password: "{{ me_mongodb_root_backup_password }}"
+  when: (ansible_play_hosts_all|length) > 2
+
+ 
+- name: single node node setup, no cluster
+  block:
+  - name: run role undergreen.mongodb role local
+    include_role:
+      name: undergreen.mongodb
+    vars:
+      mongodb_storage_dbpath: "{{ me_mongodb_storage_dbpath }}"
+      mongodb_disable_transparent_hugepages: true
+      mongodb_login_host: localhost
+      mongodb_replication_params: []
+      mongodb_keyfile_content: ""
+      mongodb_net_bindip: "127.0.0.1"
+      mongodb_security_authorization: "disabled"
+      mongodb_users: []
+  when: (ansible_play_hosts_all|length) == 1

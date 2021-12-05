@@ -82,3 +82,997 @@ that path. See https://docs.ansible.com/ansible-core/2.11/reference_appendices/i
 2021-12-04 17:31:23,600 p=416902 u=chris n=ansible | fatal: [test01]: FAILED! => {"changed": false, "msg": "It appears that a space separated string of packages was passed in as an argument. To operate on several packages, pass a comma separated string of packages or a list of packages."}
 2021-12-04 17:31:23,603 p=416902 u=chris n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************
 2021-12-04 17:31:23,603 p=416902 u=chris n=ansible | test01                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-12-04 17:32:44,568 p=417352 u=chris n=ansible | PLAY [prepare test env] **********************************************************************************************************************************************************************************
+2021-12-04 17:32:44,582 p=417352 u=chris n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2021-12-04 17:32:46,298 p=417352 u=chris n=ansible | [WARNING]: Platform linux on host test01 is using the discovered Python interpreter at /usr/libexec/platform-python, but future installation of another Python interpreter could change the meaning of
+that path. See https://docs.ansible.com/ansible-core/2.11/reference_appendices/interpreter_discovery.html for more information.
+
+2021-12-04 17:32:46,299 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:32:46,315 p=417352 u=chris n=ansible | TASK [remove firewalling] ********************************************************************************************************************************************************************************
+2021-12-04 17:32:56,880 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:32:56,890 p=417352 u=chris n=ansible | TASK [disable selinux] ***********************************************************************************************************************************************************************************
+2021-12-04 17:32:57,682 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:32:57,695 p=417352 u=chris n=ansible | TASK [disable selinux in config] *************************************************************************************************************************************************************************
+2021-12-04 17:32:58,557 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:32:58,579 p=417352 u=chris n=ansible | PLAY [setup elasticsearch] *******************************************************************************************************************************************************************************
+2021-12-04 17:32:58,592 p=417352 u=chris n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2021-12-04 17:32:59,711 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:32:59,724 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : configure bootstrap.memory_lock] **************************************************************************************************************************************
+2021-12-04 17:32:59,747 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.elastic_easy/tasks/bootstrap_memory_lock.yml for test01
+2021-12-04 17:32:59,758 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : enable elastisearch service options directory] ************************************************************************************************************************
+2021-12-04 17:33:00,599 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:33:00,608 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : give memlock permission to elasticsearch] *****************************************************************************************************************************
+2021-12-04 17:33:02,011 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:33:02,022 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : reload service configuration] *****************************************************************************************************************************************
+2021-12-04 17:33:03,344 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:03,355 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : remove elastisearch service options directory] ************************************************************************************************************************
+2021-12-04 17:33:03,374 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:03,384 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : reload service configuration] *****************************************************************************************************************************************
+2021-12-04 17:33:03,406 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:03,417 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : find hosts with ee_is_master=true in hostvars of inventory] ***********************************************************************************************************
+2021-12-04 17:33:03,516 p=417352 u=chris n=ansible | skipping: [test01] => (item=test01) 
+2021-12-04 17:33:03,529 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : format masters list into dict ee_config_masters_list] *****************************************************************************************************************
+2021-12-04 17:33:03,576 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:03,586 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : merge ee_config_template_cluster -over-> ee_config_template_all -into-> es_config] ************************************************************************************
+2021-12-04 17:33:03,631 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:03,648 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : inject ee_masters into es_config if not defined anywhere] *************************************************************************************************************
+2021-12-04 17:33:03,702 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:03,711 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : merge ee_config_template_single -over-> ee_config_template_all -into-> es_config] *************************************************************************************
+2021-12-04 17:33:03,769 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:03,779 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : merge ee_config over es_config] ***************************************************************************************************************************************
+2021-12-04 17:33:03,842 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:03,860 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : prepare seeding information] ******************************************************************************************************************************************
+2021-12-04 17:33:03,917 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:03,955 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : inject seed node {{ (ee_masters|select()|list|unique)[0] }} into es_config] *******************************************************************************************
+2021-12-04 17:33:03,983 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:03,998 p=417352 u=chris n=ansible | TASK [ensure bootstrap does not split cluster] ***********************************************************************************************************************************************************
+2021-12-04 17:33:04,025 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,057 p=417352 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : Pause for 2 minute to ensure cluster is bootstrapped] *****************************************************************************************************************
+2021-12-04 17:33:04,101 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,113 p=417352 u=chris n=ansible | TASK [run role elastic.elasticsearch role] ***************************************************************************************************************************************************************
+2021-12-04 17:33:04,503 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set_fact] ******************************************************************************************************************************************************************
+2021-12-04 17:33:04,563 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:04,581 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : os-specific vars] **********************************************************************************************************************************************************
+2021-12-04 17:33:04,613 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:04,622 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set fact oss_version when using es_enable_xpack] ***************************************************************************************************************************
+2021-12-04 17:33:04,654 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,672 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Warn about deprecated es_enable_xpack variable] ****************************************************************************************************************************
+2021-12-04 17:33:04,704 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,715 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set the defaults here otherwise they can't be overriden in the same play if the role is called twice] **********************************************************************
+2021-12-04 17:33:04,742 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:04,753 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Use the oss repo and package] **********************************************************************************************************************************************
+2021-12-04 17:33:04,772 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,782 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set the URL scheme to https if SSL/TLS is enabled] *************************************************************************************************************************
+2021-12-04 17:33:04,809 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,821 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Warn about deprecated  es_xpack_features variable] *************************************************************************************************************************
+2021-12-04 17:33:04,854 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,870 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : fail when oss_version is true with es_version >= 7.11.0] *******************************************************************************************************************
+2021-12-04 17:33:04,898 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,909 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : fail when es_proxy_port is not defined or is blank] ************************************************************************************************************************
+2021-12-04 17:33:04,948 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:04,969 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : fail when heap size is not specified when using memory lock] ***************************************************************************************************************
+2021-12-04 17:33:04,994 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,005 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : fail when password is not declared when using security] ********************************************************************************************************************
+2021-12-04 17:33:05,036 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,049 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : fail when api credentials are not declared when using tls] *****************************************************************************************************************
+2021-12-04 17:33:05,070 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,081 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : fail when ssl enabled without defining a key and certificate] **************************************************************************************************************
+2021-12-04 17:33:05,106 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,118 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact file_reserved_users] **********************************************************************************************************************************************
+2021-12-04 17:33:05,163 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,173 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : fail when changing users through file realm] *******************************************************************************************************************************
+2021-12-04 17:33:05,197 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,211 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact m_lock_enabled] ***************************************************************************************************************************************************
+2021-12-04 17:33:05,255 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:05,269 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact use_system_d] *****************************************************************************************************************************************************
+2021-12-04 17:33:05,306 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:05,317 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : detect if we need the .deb or .rpm] ****************************************************************************************************************************************
+2021-12-04 17:33:05,337 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,349 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : get the minor version] *****************************************************************************************************************************************************
+2021-12-04 17:33:05,400 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,412 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set the package_name] ******************************************************************************************************************************************************
+2021-12-04 17:33:05,433 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,450 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : generate the artifacts url] ************************************************************************************************************************************************
+2021-12-04 17:33:05,492 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,505 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : get latest snapshot build] *************************************************************************************************************************************************
+2021-12-04 17:33:05,522 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,531 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : use the custom package url instead of the repository] **********************************************************************************************************************
+2021-12-04 17:33:05,554 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,567 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : split up the snapshot url so we can create the plugin url] *****************************************************************************************************************
+2021-12-04 17:33:05,587 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,596 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set base plugin url] *******************************************************************************************************************************************************
+2021-12-04 17:33:05,619 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,629 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : create es_plugins with the snapshot url] ***********************************************************************************************************************************
+2021-12-04 17:33:05,648 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,659 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : override the original es_plugins with the snapshot version] ****************************************************************************************************************
+2021-12-04 17:33:05,677 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,687 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact java_state to present] ********************************************************************************************************************************************
+2021-12-04 17:33:05,726 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,736 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact java_state to latest] *********************************************************************************************************************************************
+2021-12-04 17:33:05,764 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,774 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - Ensure Java is installed] *****************************************************************************************************************************************
+2021-12-04 17:33:05,803 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,811 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Get the installed java path] ***********************************************************************************************************************************************
+2021-12-04 17:33:05,841 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,850 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : correct java version selected] *********************************************************************************************************************************************
+2021-12-04 17:33:05,880 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,888 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Refresh java repo] *********************************************************************************************************************************************************
+2021-12-04 17:33:05,916 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,924 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Ensure Java is installed] *****************************************************************************************************************************************
+2021-12-04 17:33:05,956 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:05,966 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : register open_jdk version] *************************************************************************************************************************************************
+2021-12-04 17:33:05,993 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,002 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : refresh the java ca-certificates] ******************************************************************************************************************************************
+2021-12-04 17:33:06,034 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,044 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact force_install to no] **********************************************************************************************************************************************
+2021-12-04 17:33:06,061 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,072 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact force_install to yes] *********************************************************************************************************************************************
+2021-12-04 17:33:06,090 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,101 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Check if the elasticsearch package is installed] ***************************************************************************************************************************
+2021-12-04 17:33:06,117 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,127 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : unhold elasticsearch package when switching to a different package type] ***************************************************************************************************
+2021-12-04 17:33:06,144 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,156 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : stop elasticsearch] ********************************************************************************************************************************************************
+2021-12-04 17:33:06,171 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,183 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Remove elasticsearch package if we are switching to a different package type] *************************************************************************************
+2021-12-04 17:33:06,201 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,212 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Install apt-transport-https to support https APT downloads] *******************************************************************************************************
+2021-12-04 17:33:06,232 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,241 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Add Elasticsearch repository key] *********************************************************************************************************************************
+2021-12-04 17:33:06,258 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,268 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Add elasticsearch repository] *************************************************************************************************************************************
+2021-12-04 17:33:06,308 p=417352 u=chris n=ansible | skipping: [test01] => (item={'repo': 'deb http://packages.elastic.co/elasticsearch/7.x/debian stable main', 'state': 'absent'}) 
+2021-12-04 17:33:06,312 p=417352 u=chris n=ansible | skipping: [test01] => (item={'repo': 'deb https://artifacts.elastic.co/packages/7.x/apt stable main', 'state': 'present'}) 
+2021-12-04 17:33:06,314 p=417352 u=chris n=ansible | skipping: [test01] => (item={'repo': 'deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main', 'state': 'absent'}) 
+2021-12-04 17:33:06,325 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure optional elasticsearch group is created with the correct id.] *******************************************************************************************************
+2021-12-04 17:33:06,344 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,352 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure optional elasticsearch user is created with the correct id.] ********************************************************************************************************
+2021-12-04 17:33:06,375 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,385 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Get installed elasticsearch version] ******************************************************************************************************************************
+2021-12-04 17:33:06,404 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,413 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - unhold elasticsearch version] *************************************************************************************************************************************
+2021-12-04 17:33:06,430 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,443 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Ensure elasticsearch is installed] ********************************************************************************************************************************
+2021-12-04 17:33:06,462 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,471 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - hold elasticsearch version] ***************************************************************************************************************************************
+2021-12-04 17:33:06,488 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,498 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set_fact] ******************************************************************************************************************************************************************
+2021-12-04 17:33:06,518 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,534 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Install Elasticsearch from url] ***********************************************************************************************************************************
+2021-12-04 17:33:06,552 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,562 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact allow_downgrade to no] ********************************************************************************************************************************************
+2021-12-04 17:33:06,587 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:06,597 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact allow_downgrade to yes] *******************************************************************************************************************************************
+2021-12-04 17:33:06,616 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,624 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure libselinux-python on CentOS 6.x] ************************************************************************************************************************************
+2021-12-04 17:33:06,645 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:06,656 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - add Elasticsearch repo] *******************************************************************************************************************************************
+2021-12-04 17:33:08,026 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:33:08,034 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - remove unused Elasticsearch repo] *********************************************************************************************************************************
+2021-12-04 17:33:08,778 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:08,790 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - install yum-version-lock] *****************************************************************************************************************************************
+2021-12-04 17:33:23,895 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:33:23,904 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - check if requested elasticsearch version lock exists] *************************************************************************************************************
+2021-12-04 17:33:25,219 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:25,228 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - lock elasticsearch version] ***************************************************************************************************************************************
+2021-12-04 17:33:25,249 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:25,259 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - check if any elasticsearch version lock exists] *******************************************************************************************************************
+2021-12-04 17:33:26,753 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:26,762 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - unlock elasticsearch version] *************************************************************************************************************************************
+2021-12-04 17:33:26,798 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:26,806 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - Remove the other elasticsearch package if switching between OSS and standard] *************************************************************************************
+2021-12-04 17:33:28,185 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:33:28,196 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure optional elasticsearch group is created with the correct id.] *******************************************************************************************************
+2021-12-04 17:33:28,226 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:28,237 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure optional elasticsearch user is created with the correct id.] ********************************************************************************************************
+2021-12-04 17:33:28,270 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:33:28,279 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - Install Elasticsearch] ********************************************************************************************************************************************
+2021-12-04 17:34:23,223 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:34:23,233 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set_fact] ******************************************************************************************************************************************************************
+2021-12-04 17:34:23,268 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:34:23,279 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - Install Elasticsearch from url] ***********************************************************************************************************************************
+2021-12-04 17:34:23,304 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:23,314 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Create Configuration Directory] ********************************************************************************************************************************************
+2021-12-04 17:34:23,978 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:34:23,986 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Create PID Directory] ******************************************************************************************************************************************************
+2021-12-04 17:34:24,575 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:34:24,583 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Create Others Directories] *************************************************************************************************************************************************
+2021-12-04 17:34:25,192 p=417352 u=chris n=ansible | ok: [test01] => (item=/var/log/elasticsearch)
+2021-12-04 17:34:25,789 p=417352 u=chris n=ansible | ok: [test01] => (item=/var/lib/elasticsearch)
+2021-12-04 17:34:25,800 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy Configuration File] ***************************************************************************************************************************************************
+2021-12-04 17:34:26,897 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:34:26,905 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy Default File] *********************************************************************************************************************************************************
+2021-12-04 17:34:28,050 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:34:28,058 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Make sure destination dir exists] ******************************************************************************************************************************************
+2021-12-04 17:34:28,079 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:28,087 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy specific ElasticSearch Systemd config file] ***************************************************************************************************************************
+2021-12-04 17:34:28,110 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:28,120 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy jvm.options File] *****************************************************************************************************************************************************
+2021-12-04 17:34:29,360 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:34:29,370 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy log4j2.properties File] ***********************************************************************************************************************************************
+2021-12-04 17:34:29,390 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,400 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact es_plugins_reinstall to true] *************************************************************************************************************************************
+2021-12-04 17:34:29,425 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,433 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact list_command] *****************************************************************************************************************************************************
+2021-12-04 17:34:29,459 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,467 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact list_command check for x-pack] ************************************************************************************************************************************
+2021-12-04 17:34:29,490 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,500 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : remove x-pack plugin directory when it isn't a plugin] *********************************************************************************************************************
+2021-12-04 17:34:29,526 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,537 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Check installed elasticsearch plugins] *************************************************************************************************************************************
+2021-12-04 17:34:29,563 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,577 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact plugins_to_remove to install_plugins.stdout_lines] ****************************************************************************************************************
+2021-12-04 17:34:29,604 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,614 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact plugins_to_remove to delete plugins installed but not listed in es_plugins] ***************************************************************************************
+2021-12-04 17:34:29,641 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,651 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact plugins_to_install to es_plugins] *********************************************************************************************************************************
+2021-12-04 17:34:29,677 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,692 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact to plugins_to_install to those in es_config but not installed] ****************************************************************************************************
+2021-12-04 17:34:29,717 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,728 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Remove elasticsearch plugins] **********************************************************************************************************************************************
+2021-12-04 17:34:29,768 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Install elasticsearch plugins] *********************************************************************************************************************************************
+2021-12-04 17:34:29,793 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:29,804 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : create the keystore if it doesn't exist yet] *******************************************************************************************************************************
+2021-12-04 17:34:30,460 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:34:30,473 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Check if bootstrap password is set] ****************************************************************************************************************************************
+2021-12-04 17:34:32,420 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:34:32,429 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Create Bootstrap password for elastic user] ********************************************************************************************************************************
+2021-12-04 17:34:32,452 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:32,460 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Remove keystore entries] ***************************************************************************************************************************************************
+2021-12-04 17:34:32,494 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:32,503 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Reload keystore entries] ***************************************************************************************************************************************************
+2021-12-04 17:34:34,299 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:34:34,310 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Add keystore entries] ******************************************************************************************************************************************************
+2021-12-04 17:34:34,345 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,356 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set_fact] ******************************************************************************************************************************************************************
+2021-12-04 17:34:34,388 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,405 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set_fact] ******************************************************************************************************************************************************************
+2021-12-04 17:34:34,436 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,445 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Check if old users file exists] ********************************************************************************************************************************************
+2021-12-04 17:34:34,485 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,496 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy the old users file from the old deprecated location] ******************************************************************************************************************
+2021-12-04 17:34:34,530 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,541 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : List Users] ****************************************************************************************************************************************************************
+2021-12-04 17:34:34,570 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,580 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact users_to_remove] **************************************************************************************************************************************************
+2021-12-04 17:34:34,612 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,622 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Remove Users] **************************************************************************************************************************************************************
+2021-12-04 17:34:34,661 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact users_to_add] *****************************************************************************************************************************************************
+2021-12-04 17:34:34,690 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,700 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Add Users] *****************************************************************************************************************************************************************
+2021-12-04 17:34:34,733 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,743 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set User Passwords] ********************************************************************************************************************************************************
+2021-12-04 17:34:34,779 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,790 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact users_roles] ******************************************************************************************************************************************************
+2021-12-04 17:34:34,825 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,833 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy roles.yml File for Instance] ******************************************************************************************************************************************
+2021-12-04 17:34:34,862 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,873 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy User Roles] ***********************************************************************************************************************************************************
+2021-12-04 17:34:34,902 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,912 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy role_mapping.yml file for instance] ***********************************************************************************************************************************
+2021-12-04 17:34:34,938 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:34,946 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set elasticsearch.keystore Permissions] ************************************************************************************************************************************
+2021-12-04 17:34:35,687 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:34:35,697 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact es_same_keystore] *************************************************************************************************************************************************
+2021-12-04 17:34:35,724 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:35,734 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact es_same_keystore if stores match] *********************************************************************************************************************************
+2021-12-04 17:34:35,757 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:35,767 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure certificate directory exists] ***************************************************************************************************************************************
+2021-12-04 17:34:35,790 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:35,799 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Upload SSL/TLS keystore] ***************************************************************************************************************************************************
+2021-12-04 17:34:35,824 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:35,835 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Upload SSL/TLS truststore] *************************************************************************************************************************************************
+2021-12-04 17:34:35,860 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:35,870 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Upload SSL/TLS key and certificate] ****************************************************************************************************************************************
+2021-12-04 17:34:35,909 p=417352 u=chris n=ansible | skipping: [test01] => (item=) 
+2021-12-04 17:34:35,910 p=417352 u=chris n=ansible | skipping: [test01] => (item=) 
+2021-12-04 17:34:35,921 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Upload SSL Certificate Authority] ******************************************************************************************************************************************
+2021-12-04 17:34:35,944 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:35,956 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set keystore password] *****************************************************************************************************************************************************
+2021-12-04 17:34:35,985 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:34:35,987 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:34:35,988 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:35,999 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set truststore password] ***************************************************************************************************************************************************
+2021-12-04 17:34:36,026 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:34:36,028 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:34:36,029 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:36,045 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Remove keystore password] **************************************************************************************************************************************************
+2021-12-04 17:34:36,074 p=417352 u=chris n=ansible | skipping: [test01] => (item=http) 
+2021-12-04 17:34:36,075 p=417352 u=chris n=ansible | skipping: [test01] => (item=transport) 
+2021-12-04 17:34:36,086 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Remove truststore password] ************************************************************************************************************************************************
+2021-12-04 17:34:36,118 p=417352 u=chris n=ansible | skipping: [test01] => (item=http) 
+2021-12-04 17:34:36,119 p=417352 u=chris n=ansible | skipping: [test01] => (item=transport) 
+2021-12-04 17:34:36,129 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Set key password] **********************************************************************************************************************************************************
+2021-12-04 17:34:36,156 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:34:36,157 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:34:36,158 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:34:36,168 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Remove key password] *******************************************************************************************************************************************************
+2021-12-04 17:34:36,195 p=417352 u=chris n=ansible | skipping: [test01] => (item=http) 
+2021-12-04 17:34:36,198 p=417352 u=chris n=ansible | skipping: [test01] => (item=transport) 
+2021-12-04 17:34:36,208 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : flush handlers] ************************************************************************************************************************************************************
+2021-12-04 17:34:36,208 p=417352 u=chris n=ansible | RUNNING HANDLER [elastic.elasticsearch : restart elasticsearch] ******************************************************************************************************************************************
+2021-12-04 17:35:02,803 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:35:02,817 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Make sure elasticsearch is started] ****************************************************************************************************************************************
+2021-12-04 17:35:04,178 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:35:04,191 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Wait for elasticsearch to startup] *****************************************************************************************************************************************
+2021-12-04 17:35:10,447 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:35:10,455 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact manage_native_realm to false] *************************************************************************************************************************************
+2021-12-04 17:35:10,473 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:35:10,483 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact manage_native_realm to true] **************************************************************************************************************************************
+2021-12-04 17:35:10,518 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,532 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Wait 15 seconds for the Native Realm to come up] ***************************************************************************************************************************
+2021-12-04 17:35:10,560 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,572 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Activate ES license (with security authentication)] ************************************************************************************************************************
+2021-12-04 17:35:10,601 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,612 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : License] *******************************************************************************************************************************************************************
+2021-12-04 17:35:10,639 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,649 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Activate ES trial license (with security authentication)] ******************************************************************************************************************
+2021-12-04 17:35:10,673 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,685 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Trial license] *************************************************************************************************************************************************************
+2021-12-04 17:35:10,707 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,717 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact change_api_password to false] *************************************************************************************************************************************
+2021-12-04 17:35:10,744 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,754 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact manage_native_users to false] *************************************************************************************************************************************
+2021-12-04 17:35:10,781 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,792 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact manage_native_users to true] **************************************************************************************************************************************
+2021-12-04 17:35:10,819 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,833 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact manage_native_role to false] **************************************************************************************************************************************
+2021-12-04 17:35:10,856 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,869 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact manage_native_roles to true] **************************************************************************************************************************************
+2021-12-04 17:35:10,899 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,910 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : List Native Users] *********************************************************************************************************************************************************
+2021-12-04 17:35:10,935 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,945 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact reserved_users equals user_list_response.json] ********************************************************************************************************************
+2021-12-04 17:35:10,972 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:10,985 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact current_users equals user_list_response.json.keys not including reserved] *****************************************************************************************
+2021-12-04 17:35:11,010 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,020 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact native_users] *****************************************************************************************************************************************************
+2021-12-04 17:35:11,045 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,054 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact change_api_password to true] **************************************************************************************************************************************
+2021-12-04 17:35:11,076 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,087 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Update API User Password] **************************************************************************************************************************************************
+2021-12-04 17:35:11,112 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,124 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact es_api_basic_auth_password] ***************************************************************************************************************************************
+2021-12-04 17:35:11,155 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,163 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact users_to_remove] **************************************************************************************************************************************************
+2021-12-04 17:35:11,193 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,205 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Delete Native Users] *******************************************************************************************************************************************************
+2021-12-04 17:35:11,246 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact users_to_ignore] **************************************************************************************************************************************************
+2021-12-04 17:35:11,271 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,282 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : debug message] *************************************************************************************************************************************************************
+2021-12-04 17:35:11,307 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,323 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Update Reserved User Passwords] ********************************************************************************************************************************************
+2021-12-04 17:35:11,361 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,371 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact users_to_modify] **************************************************************************************************************************************************
+2021-12-04 17:35:11,397 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,407 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Update Non-Reserved Native User Details] ***********************************************************************************************************************************
+2021-12-04 17:35:11,444 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,454 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : List Native Roles] *********************************************************************************************************************************************************
+2021-12-04 17:35:11,485 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,496 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact reserved roles] ***************************************************************************************************************************************************
+2021-12-04 17:35:11,526 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,540 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact current roles] ****************************************************************************************************************************************************
+2021-12-04 17:35:11,571 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,582 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact roles to ignore] **************************************************************************************************************************************************
+2021-12-04 17:35:11,615 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,625 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : debug message] *************************************************************************************************************************************************************
+2021-12-04 17:35:11,667 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,680 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact roles_to_remove] **************************************************************************************************************************************************
+2021-12-04 17:35:11,706 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,717 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Delete Native Roles] *******************************************************************************************************************************************************
+2021-12-04 17:35:11,766 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : set fact roles_to_modify] **************************************************************************************************************************************************
+2021-12-04 17:35:11,800 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,813 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Update Native Roles] *******************************************************************************************************************************************************
+2021-12-04 17:35:11,871 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : ensure templates dir is created] *******************************************************************************************************************************************
+2021-12-04 17:35:11,908 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:11,921 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Copy templates to elasticsearch] *******************************************************************************************************************************************
+2021-12-04 17:35:11,965 p=417352 u=chris n=ansible | TASK [elastic.elasticsearch : Install templates] *********************************************************************************************************************************************************
+2021-12-04 17:35:12,037 p=417352 u=chris n=ansible | PLAY [setup mongodb] *************************************************************************************************************************************************************************************
+2021-12-04 17:35:12,051 p=417352 u=chris n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2021-12-04 17:35:13,440 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:35:13,454 p=417352 u=chris n=ansible | TASK [joe-speedboat.mongo_easy : avoid two node clusters] ************************************************************************************************************************************************
+2021-12-04 17:35:13,478 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:13,488 p=417352 u=chris n=ansible | TASK [joe-speedboat.mongo_easy : set first inventory node to mongodb_master] *****************************************************************************************************************************
+2021-12-04 17:35:13,513 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:13,521 p=417352 u=chris n=ansible | TASK [joe-speedboat.mongo_easy : set mongodb_login_host to first host] ***********************************************************************************************************************************
+2021-12-04 17:35:13,546 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:13,559 p=417352 u=chris n=ansible | TASK [joe-speedboat.mongo_easy : set mongodb_replication_params with all hosts as member] ****************************************************************************************************************
+2021-12-04 17:35:13,593 p=417352 u=chris n=ansible | skipping: [test01] => (item=test01) 
+2021-12-04 17:35:13,608 p=417352 u=chris n=ansible | TASK [joe-speedboat.mongo_easy : read me_mongodb_security_keyfile on first node] *************************************************************************************************************************
+2021-12-04 17:35:13,631 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:13,640 p=417352 u=chris n=ansible | TASK [joe-speedboat.mongo_easy : prepare me_mongodb_keyfile_content] *************************************************************************************************************************************
+2021-12-04 17:35:13,666 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:13,678 p=417352 u=chris n=ansible | TASK [joe-speedboat.mongo_easy : generate random string for keyfile] *************************************************************************************************************************************
+2021-12-04 17:35:13,702 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:13,711 p=417352 u=chris n=ansible | TASK [run role undergreen.mongodb role cluster] **********************************************************************************************************************************************************
+2021-12-04 17:35:13,736 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:13,747 p=417352 u=chris n=ansible | TASK [run role undergreen.mongodb role local] ************************************************************************************************************************************************************
+2021-12-04 17:35:13,966 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Check value of variable mongodb_net_ssl_host] *********************************************************************************************************************************
+2021-12-04 17:35:14,001 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:14,012 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Check value of variable mongodb_login_host] ***********************************************************************************************************************************
+2021-12-04 17:35:14,054 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:35:14,066 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Include OS-specific variables] ************************************************************************************************************************************************
+2021-12-04 17:35:14,119 p=417352 u=chris n=ansible | ok: [test01] => (item=/etc/ansible/roles/joe-speedboat.graylog/tests/roles/undergreen.mongodb/vars/RedHat.yml)
+2021-12-04 17:35:14,134 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Include installation tasks] ***************************************************************************************************************************************************
+2021-12-04 17:35:14,197 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/undergreen.mongodb/tasks/install.redhat.yml for test01 => (item=/etc/ansible/roles/joe-speedboat.graylog/tests/roles/undergreen.mongodb/tasks/install.redhat.yml)
+2021-12-04 17:35:14,234 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Establish some role-related facts] ********************************************************************************************************************************************
+2021-12-04 17:35:14,278 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:35:14,292 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install EPEL release repository] **********************************************************************************************************************************************
+2021-12-04 17:35:22,684 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:35:22,694 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Add YUM repository] ***********************************************************************************************************************************************************
+2021-12-04 17:35:23,863 p=417352 u=chris n=ansible | changed: [test01] => (item=4.4)
+2021-12-04 17:35:23,875 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install MongoDB package] ******************************************************************************************************************************************************
+2021-12-04 17:35:59,108 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:35:59,117 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install numactl package] ******************************************************************************************************************************************************
+2021-12-04 17:36:04,436 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:36:04,450 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install PyMongo package] ******************************************************************************************************************************************************
+2021-12-04 17:36:04,485 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:04,497 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install PIP] ******************************************************************************************************************************************************************
+2021-12-04 17:36:09,140 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:36:09,149 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install PyMongo from PIP] *****************************************************************************************************************************************************
+2021-12-04 17:36:12,633 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:36:12,643 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create mongodb group] *********************************************************************************************************************************************************
+2021-12-04 17:36:13,395 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:13,403 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create mongodb user] **********************************************************************************************************************************************************
+2021-12-04 17:36:14,308 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:14,318 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : set mongodb gid] **************************************************************************************************************************************************************
+2021-12-04 17:36:15,014 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:15,023 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : set mongodb uid] **************************************************************************************************************************************************************
+2021-12-04 17:36:15,762 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:15,770 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Create keyFile] ***************************************************************************************************************************************************************
+2021-12-04 17:36:15,795 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:15,807 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Create log dir if missing] ****************************************************************************************************************************************************
+2021-12-04 17:36:16,433 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:16,442 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Check than logfile exists] ****************************************************************************************************************************************************
+2021-12-04 17:36:17,321 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:17,331 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Create log if missing] ********************************************************************************************************************************************************
+2021-12-04 17:36:17,371 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:17,382 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Ensure dbpath directory] ******************************************************************************************************************************************************
+2021-12-04 17:36:18,113 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:18,124 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Configure mongodb] ************************************************************************************************************************************************************
+2021-12-04 17:36:19,443 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:36:19,452 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Flush all handlers at this point] *********************************************************************************************************************************************
+2021-12-04 17:36:19,452 p=417352 u=chris n=ansible | [WARNING]: flush_handlers task does not support when conditional
+
+2021-12-04 17:36:19,453 p=417352 u=chris n=ansible | RUNNING HANDLER [undergreen.mongodb : mongodb restart] ***************************************************************************************************************************************************
+2021-12-04 17:36:21,258 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:36:21,259 p=417352 u=chris n=ansible | RUNNING HANDLER [undergreen.mongodb : wait when mongodb is started] **************************************************************************************************************************************
+2021-12-04 17:36:21,990 p=417352 u=chris n=ansible | ok: [test01] => (item=127.0.0.1)
+2021-12-04 17:36:22,004 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Replication configuration | 1st Pt.] ******************************************************************************************************************************************
+2021-12-04 17:36:22,054 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Use different mongod.conf for auth initialization] ****************************************************************************************************************************
+2021-12-04 17:36:22,097 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,109 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Flush all handlers at this point] *********************************************************************************************************************************************
+2021-12-04 17:36:22,121 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create administrative user "siteUserAdmin"] ***********************************************************************************************************************************
+2021-12-04 17:36:22,168 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:36:22,170 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,182 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create administrative user "siteRootAdmin"] ***********************************************************************************************************************************
+2021-12-04 17:36:22,226 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:36:22,228 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,242 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create backup user "backupuser"] **********************************************************************************************************************************************
+2021-12-04 17:36:22,312 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:36:22,318 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,333 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Move back mongod.conf] ********************************************************************************************************************************************************
+2021-12-04 17:36:22,377 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,389 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Flush all handlers at this point] *********************************************************************************************************************************************
+2021-12-04 17:36:22,401 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Replication configuration | 2nd Pt] *******************************************************************************************************************************************
+2021-12-04 17:36:22,450 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Replication configuration] ****************************************************************************************************************************************************
+2021-12-04 17:36:22,503 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Replication configuration without auth on master] *****************************************************************************************************************************
+2021-12-04 17:36:22,556 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Replication configuration without auth on replicas and arbiters] **************************************************************************************************************
+2021-12-04 17:36:22,603 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Check whether admin user is already exist] ************************************************************************************************************************************
+2021-12-04 17:36:22,636 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,648 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Use different mongod.conf for auth initialization] ****************************************************************************************************************************
+2021-12-04 17:36:22,682 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,694 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Flush all handlers at this point] *********************************************************************************************************************************************
+2021-12-04 17:36:22,704 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create administrative user "siteUserAdmin"] ***********************************************************************************************************************************
+2021-12-04 17:36:22,752 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:36:22,753 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,768 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create administrative user "siteRootAdmin"] ***********************************************************************************************************************************
+2021-12-04 17:36:22,833 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:36:22,835 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,848 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create backup user "backupuser"] **********************************************************************************************************************************************
+2021-12-04 17:36:22,905 p=417352 u=chris n=ansible | skipping: [test01] => (item=None) 
+2021-12-04 17:36:22,907 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,917 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Move back mongod.conf] ********************************************************************************************************************************************************
+2021-12-04 17:36:22,955 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:22,965 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Flush all handlers at this point] *********************************************************************************************************************************************
+2021-12-04 17:36:22,978 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create normal users with replicaset] ******************************************************************************************************************************************
+2021-12-04 17:36:23,009 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:23,020 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create normal users without replicaset] ***************************************************************************************************************************************
+2021-12-04 17:36:23,048 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:23,057 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : create oplog user with replicaset] ********************************************************************************************************************************************
+2021-12-04 17:36:23,086 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:23,098 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : service started] **************************************************************************************************************************************************************
+2021-12-04 17:36:24,131 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:24,144 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install MMS agent (Debian)] ***************************************************************************************************************************************************
+2021-12-04 17:36:24,181 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:24,192 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Install MMS agent (RHEL)] *****************************************************************************************************************************************************
+2021-12-04 17:36:24,227 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:24,238 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Configure the MMS agent pt. 1] ************************************************************************************************************************************************
+2021-12-04 17:36:24,268 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:24,279 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Configure the MMS agent pt. 2] ************************************************************************************************************************************************
+2021-12-04 17:36:24,310 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:24,321 p=417352 u=chris n=ansible | TASK [undergreen.mongodb : Ensure that the MMS agent is started] *****************************************************************************************************************************************
+2021-12-04 17:36:24,355 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:36:24,393 p=417352 u=chris n=ansible | PLAY [setup graylog] *************************************************************************************************************************************************************************************
+2021-12-04 17:36:24,403 p=417352 u=chris n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2021-12-04 17:36:25,638 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:25,656 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : set_fact] ******************************************************************************************************************************************************************
+2021-12-04 17:36:25,675 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:25,688 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : find all task files with numeric pattern] **********************************************************************************************************************************
+2021-12-04 17:36:26,272 p=417352 u=chris n=ansible | ok: [test01 -> localhost]
+2021-12-04 17:36:26,282 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : debug] *********************************************************************************************************************************************************************
+2021-12-04 17:36:26,332 p=417352 u=chris n=ansible | ok: [test01] => {
+    "found_playbooks": {
+        "changed": false,
+        "examined": 10,
+        "failed": false,
+        "files": [
+            {
+                "atime": 1638635428.0,
+                "ctime": 1638635469.2989035,
+                "dev": 64768,
+                "gid": 1335800003,
+                "gr_name": "office",
+                "inode": 35078303,
+                "isblk": false,
+                "ischr": false,
+                "isdir": false,
+                "isfifo": false,
+                "isgid": false,
+                "islnk": false,
+                "isreg": true,
+                "issock": false,
+                "isuid": false,
+                "mode": "0664",
+                "mtime": 1638635428.0,
+                "nlink": 1,
+                "path": "/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/10_repos.yml",
+                "pw_name": "chris",
+                "rgrp": true,
+                "roth": true,
+                "rusr": true,
+                "size": 122,
+                "uid": 1335800004,
+                "wgrp": true,
+                "woth": false,
+                "wusr": true,
+                "xgrp": false,
+                "xoth": false,
+                "xusr": false
+            },
+            {
+                "atime": 1638635428.0,
+                "ctime": 1638635469.2989035,
+                "dev": 64768,
+                "gid": 1335800003,
+                "gr_name": "office",
+                "inode": 35078304,
+                "isblk": false,
+                "ischr": false,
+                "isdir": false,
+                "isfifo": false,
+                "isgid": false,
+                "islnk": false,
+                "isreg": true,
+                "issock": false,
+                "isuid": false,
+                "mode": "0664",
+                "mtime": 1638635428.0,
+                "nlink": 1,
+                "path": "/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/20_java.yml",
+                "pw_name": "chris",
+                "rgrp": true,
+                "roth": true,
+                "rusr": true,
+                "size": 101,
+                "uid": 1335800004,
+                "wgrp": true,
+                "woth": false,
+                "wusr": true,
+                "xgrp": false,
+                "xoth": false,
+                "xusr": false
+            },
+            {
+                "atime": 1638635428.0,
+                "ctime": 1638635469.2989035,
+                "dev": 64768,
+                "gid": 1335800003,
+                "gr_name": "office",
+                "inode": 35078305,
+                "isblk": false,
+                "ischr": false,
+                "isdir": false,
+                "isfifo": false,
+                "isgid": false,
+                "islnk": false,
+                "isreg": true,
+                "issock": false,
+                "isuid": false,
+                "mode": "0664",
+                "mtime": 1638635428.0,
+                "nlink": 1,
+                "path": "/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/40_install.yml",
+                "pw_name": "chris",
+                "rgrp": true,
+                "roth": true,
+                "rusr": true,
+                "size": 273,
+                "uid": 1335800004,
+                "wgrp": true,
+                "woth": false,
+                "wusr": true,
+                "xgrp": false,
+                "xoth": false,
+                "xusr": false
+            },
+            {
+                "atime": 1638635428.0,
+                "ctime": 1638635469.2989035,
+                "dev": 64768,
+                "gid": 1335800003,
+                "gr_name": "office",
+                "inode": 35078306,
+                "isblk": false,
+                "ischr": false,
+                "isdir": false,
+                "isfifo": false,
+                "isgid": false,
+                "islnk": false,
+                "isreg": true,
+                "issock": false,
+                "isuid": false,
+                "mode": "0664",
+                "mtime": 1638635428.0,
+                "nlink": 1,
+                "path": "/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/50_elastic_vars.yml",
+                "pw_name": "chris",
+                "rgrp": true,
+                "roth": true,
+                "rusr": true,
+                "size": 875,
+                "uid": 1335800004,
+                "wgrp": true,
+                "woth": false,
+                "wusr": true,
+                "xgrp": false,
+                "xoth": false,
+                "xusr": false
+            },
+            {
+                "atime": 1638635428.0,
+                "ctime": 1638635469.2989035,
+                "dev": 64768,
+                "gid": 1335800003,
+                "gr_name": "office",
+                "inode": 35078307,
+                "isblk": false,
+                "ischr": false,
+                "isdir": false,
+                "isfifo": false,
+                "isgid": false,
+                "islnk": false,
+                "isreg": true,
+                "issock": false,
+                "isuid": false,
+                "mode": "0664",
+                "mtime": 1638635428.0,
+                "nlink": 1,
+                "path": "/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/51_mongo_vars.yml",
+                "pw_name": "chris",
+                "rgrp": true,
+                "roth": true,
+                "rusr": true,
+                "size": 584,
+                "uid": 1335800004,
+                "wgrp": true,
+                "woth": false,
+                "wusr": true,
+                "xgrp": false,
+                "xoth": false,
+                "xusr": false
+            },
+            {
+                "atime": 1638635428.0,
+                "ctime": 1638635469.2989035,
+                "dev": 64768,
+                "gid": 1335800003,
+                "gr_name": "office",
+                "inode": 35078308,
+                "isblk": false,
+                "ischr": false,
+                "isdir": false,
+                "isfifo": false,
+                "isgid": false,
+                "islnk": false,
+                "isreg": true,
+                "issock": false,
+                "isuid": false,
+                "mode": "0664",
+                "mtime": 1638635428.0,
+                "nlink": 1,
+                "path": "/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/52_cluster_vars.yml",
+                "pw_name": "chris",
+                "rgrp": true,
+                "roth": true,
+                "rusr": true,
+                "size": 645,
+                "uid": 1335800004,
+                "wgrp": true,
+                "woth": false,
+                "wusr": true,
+                "xgrp": false,
+                "xoth": false,
+                "xusr": false
+            },
+            {
+                "atime": 1638635428.0,
+                "ctime": 1638635469.2999034,
+                "dev": 64768,
+                "gid": 1335800003,
+                "gr_name": "office",
+                "inode": 35078309,
+                "isblk": false,
+                "ischr": false,
+                "isdir": false,
+                "isfifo": false,
+                "isgid": false,
+                "islnk": false,
+                "isreg": true,
+                "issock": false,
+                "isuid": false,
+                "mode": "0664",
+                "mtime": 1638635428.0,
+                "nlink": 1,
+                "path": "/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/60_config.yml",
+                "pw_name": "chris",
+                "rgrp": true,
+                "roth": true,
+                "rusr": true,
+                "size": 7172,
+                "uid": 1335800004,
+                "wgrp": true,
+                "woth": false,
+                "wusr": true,
+                "xgrp": false,
+                "xoth": false,
+                "xusr": false
+            }
+        ],
+        "matched": 7,
+        "msg": ""
+    }
+}
+2021-12-04 17:36:26,341 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : trim all playbook paths] ***************************************************************************************************************************************************
+2021-12-04 17:36:26,398 p=417352 u=chris n=ansible | ok: [test01] => (item={'path': '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/10_repos.yml', 'mode': '0664', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1335800004, 'gid': 1335800003, 'size': 122, 'inode': 35078303, 'dev': 64768, 'nlink': 1, 'atime': 1638635428.0, 'mtime': 1638635428.0, 'ctime': 1638635469.2989035, 'gr_name': 'office', 'pw_name': 'chris', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False})
+2021-12-04 17:36:26,405 p=417352 u=chris n=ansible | ok: [test01] => (item={'path': '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/20_java.yml', 'mode': '0664', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1335800004, 'gid': 1335800003, 'size': 101, 'inode': 35078304, 'dev': 64768, 'nlink': 1, 'atime': 1638635428.0, 'mtime': 1638635428.0, 'ctime': 1638635469.2989035, 'gr_name': 'office', 'pw_name': 'chris', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False})
+2021-12-04 17:36:26,413 p=417352 u=chris n=ansible | ok: [test01] => (item={'path': '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/40_install.yml', 'mode': '0664', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1335800004, 'gid': 1335800003, 'size': 273, 'inode': 35078305, 'dev': 64768, 'nlink': 1, 'atime': 1638635428.0, 'mtime': 1638635428.0, 'ctime': 1638635469.2989035, 'gr_name': 'office', 'pw_name': 'chris', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False})
+2021-12-04 17:36:26,425 p=417352 u=chris n=ansible | ok: [test01] => (item={'path': '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/50_elastic_vars.yml', 'mode': '0664', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1335800004, 'gid': 1335800003, 'size': 875, 'inode': 35078306, 'dev': 64768, 'nlink': 1, 'atime': 1638635428.0, 'mtime': 1638635428.0, 'ctime': 1638635469.2989035, 'gr_name': 'office', 'pw_name': 'chris', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False})
+2021-12-04 17:36:26,434 p=417352 u=chris n=ansible | ok: [test01] => (item={'path': '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/51_mongo_vars.yml', 'mode': '0664', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1335800004, 'gid': 1335800003, 'size': 584, 'inode': 35078307, 'dev': 64768, 'nlink': 1, 'atime': 1638635428.0, 'mtime': 1638635428.0, 'ctime': 1638635469.2989035, 'gr_name': 'office', 'pw_name': 'chris', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False})
+2021-12-04 17:36:26,442 p=417352 u=chris n=ansible | ok: [test01] => (item={'path': '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/52_cluster_vars.yml', 'mode': '0664', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1335800004, 'gid': 1335800003, 'size': 645, 'inode': 35078308, 'dev': 64768, 'nlink': 1, 'atime': 1638635428.0, 'mtime': 1638635428.0, 'ctime': 1638635469.2989035, 'gr_name': 'office', 'pw_name': 'chris', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False})
+2021-12-04 17:36:26,450 p=417352 u=chris n=ansible | ok: [test01] => (item={'path': '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/60_config.yml', 'mode': '0664', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1335800004, 'gid': 1335800003, 'size': 7172, 'inode': 35078309, 'dev': 64768, 'nlink': 1, 'atime': 1638635428.0, 'mtime': 1638635428.0, 'ctime': 1638635469.2999034, 'gr_name': 'office', 'pw_name': 'chris', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False})
+2021-12-04 17:36:26,464 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : sort and uniq] *************************************************************************************************************************************************************
+2021-12-04 17:36:26,501 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:36:26,510 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : debug] *********************************************************************************************************************************************************************
+2021-12-04 17:36:26,546 p=417352 u=chris n=ansible | ok: [test01] => {
+    "include_file_names": [
+        "10_repos.yml",
+        "20_java.yml",
+        "40_install.yml",
+        "50_elastic_vars.yml",
+        "51_mongo_vars.yml",
+        "52_cluster_vars.yml",
+        "60_config.yml"
+    ]
+}
+2021-12-04 17:36:26,555 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : include tasks] *************************************************************************************************************************************************************
+2021-12-04 17:36:26,606 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/include-file.yml for test01 => (item=10_repos.yml)
+2021-12-04 17:36:26,608 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/include-file.yml for test01 => (item=20_java.yml)
+2021-12-04 17:36:26,611 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/include-file.yml for test01 => (item=40_install.yml)
+2021-12-04 17:36:26,613 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/include-file.yml for test01 => (item=50_elastic_vars.yml)
+2021-12-04 17:36:26,615 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/include-file.yml for test01 => (item=51_mongo_vars.yml)
+2021-12-04 17:36:26,617 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/include-file.yml for test01 => (item=52_cluster_vars.yml)
+2021-12-04 17:36:26,620 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/include-file.yml for test01 => (item=60_config.yml)
+2021-12-04 17:36:26,629 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : include 10_repos.yml] ******************************************************************************************************************************************************
+2021-12-04 17:36:26,665 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/10_repos.yml for test01 => (item=/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/10_repos.yml)
+2021-12-04 17:36:26,676 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : Install Graylog Repositry] *************************************************************************************************************************************************
+2021-12-04 17:36:30,719 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:36:30,731 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : include 20_java.yml] *******************************************************************************************************************************************************
+2021-12-04 17:36:30,771 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/20_java.yml for test01 => (item=/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/20_java.yml)
+2021-12-04 17:36:30,781 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : Install Open JDK] **********************************************************************************************************************************************************
+2021-12-04 17:36:44,656 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:36:44,667 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : include 40_install.yml] ****************************************************************************************************************************************************
+2021-12-04 17:36:44,710 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/40_install.yml for test01 => (item=/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/40_install.yml)
+2021-12-04 17:36:44,721 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : Install graylog packages] **************************************************************************************************************************************************
+2021-12-04 17:37:09,208 p=417352 u=chris n=ansible | changed: [test01]
+2021-12-04 17:37:09,220 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : Install graylog enterprise plugin] *****************************************************************************************************************************************
+2021-12-04 17:37:09,238 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:37:09,252 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : include 50_elastic_vars.yml] ***********************************************************************************************************************************************
+2021-12-04 17:37:09,299 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/50_elastic_vars.yml for test01 => (item=/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/50_elastic_vars.yml)
+2021-12-04 17:37:09,310 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : find hosts with ee_is_master=true in hostvars of inventory group elastic] **************************************************************************************************
+2021-12-04 17:37:09,417 p=417352 u=chris n=ansible | skipping: [test01] => (item=test01) 
+2021-12-04 17:37:09,417 p=417352 u=chris n=ansible | skipping: [test01] => (item=test02) 
+2021-12-04 17:37:09,418 p=417352 u=chris n=ansible | skipping: [test01] => (item=test03) 
+2021-12-04 17:37:09,427 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : define configuration string for AUTO mode] *********************************************************************************************************************************
+2021-12-04 17:37:09,454 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:37:09,466 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : define elasticsearch_hosts AUTO settings for single-node] ******************************************************************************************************************
+2021-12-04 17:37:09,494 p=417352 u=chris n=ansible | ok: [test01]
+2021-12-04 17:37:09,506 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : include 51_mongo_vars.yml] *************************************************************************************************************************************************
+2021-12-04 17:37:09,546 p=417352 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/51_mongo_vars.yml for test01 => (item=/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/51_mongo_vars.yml)
+2021-12-04 17:37:09,557 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : configure mongodb_uri cluster AUTO settings] *******************************************************************************************************************************
+2021-12-04 17:37:09,583 p=417352 u=chris n=ansible | skipping: [test01]
+2021-12-04 17:37:09,592 p=417352 u=chris n=ansible | TASK [joe-speedboat.graylog : configure mongodb_uri single-node AUTO settings] ***************************************************************************************************************************
+2021-12-04 17:37:09,623 p=417352 u=chris n=ansible | fatal: [test01]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'uniqlog_cluster_name' is undefined\n\nThe error appears to be in '/etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.graylog/tasks/shared/51_mongo_vars.yml': line 7, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: configure mongodb_uri single-node AUTO settings\n  ^ here\n"}
+2021-12-04 17:37:09,624 p=417352 u=chris n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************
+2021-12-04 17:37:09,625 p=417352 u=chris n=ansible | test01                     : ok=83   changed=23   unreachable=0    failed=1    skipped=188  rescued=0    ignored=0   
+2021-12-05 08:38:57,526 p=594682 u=chris n=ansible | PLAY [prepare test env] **********************************************************************************************************************************************************************************
+2021-12-05 08:38:57,541 p=594682 u=chris n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2021-12-05 08:38:59,962 p=594682 u=chris n=ansible | [WARNING]: Platform linux on host test01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change the meaning of that path.
+See https://docs.ansible.com/ansible-core/2.11/reference_appendices/interpreter_discovery.html for more information.
+
+2021-12-05 08:38:59,964 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:38:59,996 p=594682 u=chris n=ansible | TASK [remove firewalling] ********************************************************************************************************************************************************************************
+2021-12-05 08:39:05,361 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:05,372 p=594682 u=chris n=ansible | TASK [disable selinux] ***********************************************************************************************************************************************************************************
+2021-12-05 08:39:06,157 p=594682 u=chris n=ansible | changed: [test01]
+2021-12-05 08:39:06,165 p=594682 u=chris n=ansible | TASK [disable selinux in config] *************************************************************************************************************************************************************************
+2021-12-05 08:39:06,872 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:06,891 p=594682 u=chris n=ansible | PLAY [setup elasticsearch] *******************************************************************************************************************************************************************************
+2021-12-05 08:39:06,904 p=594682 u=chris n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2021-12-05 08:39:07,986 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:07,998 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : configure bootstrap.memory_lock] **************************************************************************************************************************************
+2021-12-05 08:39:08,021 p=594682 u=chris n=ansible | included: /etc/ansible/roles/joe-speedboat.graylog/tests/roles/joe-speedboat.elastic_easy/tasks/bootstrap_memory_lock.yml for test01
+2021-12-05 08:39:08,031 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : enable elastisearch service options directory] ************************************************************************************************************************
+2021-12-05 08:39:08,827 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:08,836 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : give memlock permission to elasticsearch] *****************************************************************************************************************************
+2021-12-05 08:39:10,130 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:10,138 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : reload service configuration] *****************************************************************************************************************************************
+2021-12-05 08:39:11,320 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:11,329 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : remove elastisearch service options directory] ************************************************************************************************************************
+2021-12-05 08:39:11,348 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,357 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : reload service configuration] *****************************************************************************************************************************************
+2021-12-05 08:39:11,378 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,391 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : find hosts with ee_is_master=true in hostvars of inventory] ***********************************************************************************************************
+2021-12-05 08:39:11,439 p=594682 u=chris n=ansible | skipping: [test01] => (item=test01) 
+2021-12-05 08:39:11,449 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : format masters list into dict ee_config_masters_list] *****************************************************************************************************************
+2021-12-05 08:39:11,482 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,489 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : merge ee_config_template_cluster -over-> ee_config_template_all -into-> es_config] ************************************************************************************
+2021-12-05 08:39:11,527 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,536 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : inject ee_masters into es_config if not defined anywhere] *************************************************************************************************************
+2021-12-05 08:39:11,568 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,574 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : merge ee_config_template_single -over-> ee_config_template_all -into-> es_config] *************************************************************************************
+2021-12-05 08:39:11,621 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:11,628 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : merge ee_config over es_config] ***************************************************************************************************************************************
+2021-12-05 08:39:11,675 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:11,684 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : prepare seeding information] ******************************************************************************************************************************************
+2021-12-05 08:39:11,718 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,746 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : inject seed node {{ (ee_masters|select()|list|unique)[0] }} into es_config] *******************************************************************************************
+2021-12-05 08:39:11,765 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,772 p=594682 u=chris n=ansible | TASK [ensure bootstrap does not split cluster] ***********************************************************************************************************************************************************
+2021-12-05 08:39:11,792 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,803 p=594682 u=chris n=ansible | TASK [joe-speedboat.elastic_easy : Pause for 2 minute to ensure cluster is bootstrapped] *****************************************************************************************************************
+2021-12-05 08:39:11,822 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:11,833 p=594682 u=chris n=ansible | TASK [run role elastic.elasticsearch role] ***************************************************************************************************************************************************************
+2021-12-05 08:39:12,113 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set_fact] ******************************************************************************************************************************************************************
+2021-12-05 08:39:12,143 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:12,154 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : os-specific vars] **********************************************************************************************************************************************************
+2021-12-05 08:39:12,174 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:12,184 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Set fact oss_version when using es_enable_xpack] ***************************************************************************************************************************
+2021-12-05 08:39:12,208 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,215 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Warn about deprecated es_enable_xpack variable] ****************************************************************************************************************************
+2021-12-05 08:39:12,235 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,244 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Set the defaults here otherwise they can't be overriden in the same play if the role is called twice] **********************************************************************
+2021-12-05 08:39:12,265 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:12,275 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Use the oss repo and package] **********************************************************************************************************************************************
+2021-12-05 08:39:12,290 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,298 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Set the URL scheme to https if SSL/TLS is enabled] *************************************************************************************************************************
+2021-12-05 08:39:12,320 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,328 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Warn about deprecated  es_xpack_features variable] *************************************************************************************************************************
+2021-12-05 08:39:12,351 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,360 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : fail when oss_version is true with es_version >= 7.11.0] *******************************************************************************************************************
+2021-12-05 08:39:12,384 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,392 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : fail when es_proxy_port is not defined or is blank] ************************************************************************************************************************
+2021-12-05 08:39:12,414 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,421 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : fail when heap size is not specified when using memory lock] ***************************************************************************************************************
+2021-12-05 08:39:12,447 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,458 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : fail when password is not declared when using security] ********************************************************************************************************************
+2021-12-05 08:39:12,482 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,490 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : fail when api credentials are not declared when using tls] *****************************************************************************************************************
+2021-12-05 08:39:12,513 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,521 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : fail when ssl enabled without defining a key and certificate] **************************************************************************************************************
+2021-12-05 08:39:12,537 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,547 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact file_reserved_users] **********************************************************************************************************************************************
+2021-12-05 08:39:12,579 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,589 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : fail when changing users through file realm] *******************************************************************************************************************************
+2021-12-05 08:39:12,611 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,620 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact m_lock_enabled] ***************************************************************************************************************************************************
+2021-12-05 08:39:12,649 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:12,658 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact use_system_d] *****************************************************************************************************************************************************
+2021-12-05 08:39:12,691 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:12,700 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : detect if we need the .deb or .rpm] ****************************************************************************************************************************************
+2021-12-05 08:39:12,716 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,728 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : get the minor version] *****************************************************************************************************************************************************
+2021-12-05 08:39:12,744 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,756 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set the package_name] ******************************************************************************************************************************************************
+2021-12-05 08:39:12,774 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,785 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : generate the artifacts url] ************************************************************************************************************************************************
+2021-12-05 08:39:12,802 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,811 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : get latest snapshot build] *************************************************************************************************************************************************
+2021-12-05 08:39:12,830 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,838 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : use the custom package url instead of the repository] **********************************************************************************************************************
+2021-12-05 08:39:12,859 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,869 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : split up the snapshot url so we can create the plugin url] *****************************************************************************************************************
+2021-12-05 08:39:12,886 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,897 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set base plugin url] *******************************************************************************************************************************************************
+2021-12-05 08:39:12,917 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,931 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : create es_plugins with the snapshot url] ***********************************************************************************************************************************
+2021-12-05 08:39:12,955 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,965 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : override the original es_plugins with the snapshot version] ****************************************************************************************************************
+2021-12-05 08:39:12,983 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:12,994 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact java_state to present] ********************************************************************************************************************************************
+2021-12-05 08:39:13,027 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,036 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact java_state to latest] *********************************************************************************************************************************************
+2021-12-05 08:39:13,067 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,078 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - Ensure Java is installed] *****************************************************************************************************************************************
+2021-12-05 08:39:13,112 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,120 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Get the installed java path] ***********************************************************************************************************************************************
+2021-12-05 08:39:13,158 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,170 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : correct java version selected] *********************************************************************************************************************************************
+2021-12-05 08:39:13,201 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,211 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Refresh java repo] *********************************************************************************************************************************************************
+2021-12-05 08:39:13,239 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,248 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Ensure Java is installed] *****************************************************************************************************************************************
+2021-12-05 08:39:13,275 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,283 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : register open_jdk version] *************************************************************************************************************************************************
+2021-12-05 08:39:13,309 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,319 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : refresh the java ca-certificates] ******************************************************************************************************************************************
+2021-12-05 08:39:13,347 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,356 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact force_install to no] **********************************************************************************************************************************************
+2021-12-05 08:39:13,374 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,383 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact force_install to yes] *********************************************************************************************************************************************
+2021-12-05 08:39:13,403 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,412 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Check if the elasticsearch package is installed] ***************************************************************************************************************************
+2021-12-05 08:39:13,431 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,442 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : unhold elasticsearch package when switching to a different package type] ***************************************************************************************************
+2021-12-05 08:39:13,461 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,471 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : stop elasticsearch] ********************************************************************************************************************************************************
+2021-12-05 08:39:13,489 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,502 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Remove elasticsearch package if we are switching to a different package type] *************************************************************************************
+2021-12-05 08:39:13,521 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,533 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Install apt-transport-https to support https APT downloads] *******************************************************************************************************
+2021-12-05 08:39:13,554 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,567 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Add Elasticsearch repository key] *********************************************************************************************************************************
+2021-12-05 08:39:13,588 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,596 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Add elasticsearch repository] *************************************************************************************************************************************
+2021-12-05 08:39:13,639 p=594682 u=chris n=ansible | skipping: [test01] => (item={'repo': 'deb http://packages.elastic.co/elasticsearch/7.x/debian stable main', 'state': 'absent'}) 
+2021-12-05 08:39:13,643 p=594682 u=chris n=ansible | skipping: [test01] => (item={'repo': 'deb https://artifacts.elastic.co/packages/7.x/apt stable main', 'state': 'present'}) 
+2021-12-05 08:39:13,645 p=594682 u=chris n=ansible | skipping: [test01] => (item={'repo': 'deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main', 'state': 'absent'}) 
+2021-12-05 08:39:13,655 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure optional elasticsearch group is created with the correct id.] *******************************************************************************************************
+2021-12-05 08:39:13,673 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,684 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure optional elasticsearch user is created with the correct id.] ********************************************************************************************************
+2021-12-05 08:39:13,707 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,718 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Get installed elasticsearch version] ******************************************************************************************************************************
+2021-12-05 08:39:13,744 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,755 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - unhold elasticsearch version] *************************************************************************************************************************************
+2021-12-05 08:39:13,774 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,784 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Ensure elasticsearch is installed] ********************************************************************************************************************************
+2021-12-05 08:39:13,804 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,814 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - hold elasticsearch version] ***************************************************************************************************************************************
+2021-12-05 08:39:13,835 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,848 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set_fact] ******************************************************************************************************************************************************************
+2021-12-05 08:39:13,871 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,880 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Debian - Install Elasticsearch from url] ***********************************************************************************************************************************
+2021-12-05 08:39:13,902 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:13,914 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact allow_downgrade to no] ********************************************************************************************************************************************
+2021-12-05 08:39:13,945 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:13,965 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : set fact allow_downgrade to yes] *******************************************************************************************************************************************
+2021-12-05 08:39:13,988 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:14,000 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : Ensure libselinux-python on CentOS 6.x] ************************************************************************************************************************************
+2021-12-05 08:39:14,031 p=594682 u=chris n=ansible | skipping: [test01]
+2021-12-05 08:39:14,041 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - add Elasticsearch repo] *******************************************************************************************************************************************
+2021-12-05 08:39:15,510 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:15,520 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - remove unused Elasticsearch repo] *********************************************************************************************************************************
+2021-12-05 08:39:16,111 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:16,120 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - install yum-version-lock] *****************************************************************************************************************************************
+2021-12-05 08:39:25,285 p=594682 u=chris n=ansible | ok: [test01]
+2021-12-05 08:39:25,293 p=594682 u=chris n=ansible | TASK [elastic.elasticsearch : RedHat - check if requested elasticsearch version lock exists] *************************************************************************************************************

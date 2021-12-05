@@ -1,0 +1,30 @@
+---
+# tasks file for joe-speedboat.elastic_easy/tasks/bootstrap_memory_lock.yml
+- name: enable bootstrap.memory_lock
+  block:
+  - name: enable elastisearch service options directory
+    file:
+      path: /etc/systemd/system/elasticsearch.service.d
+      state: directory
+      mode: '0755'
+  - name: give memlock permission to elasticsearch
+    copy:
+      dest: /etc/systemd/system/elasticsearch.service.d/override.conf
+      content: |
+        [Service]
+        LimitMEMLOCK=infinity
+  - name: reload service configuration
+    systemd:
+      daemon_reload: true
+  when: ee_config_template_all['bootstrap.memory_lock']
+- name: disable bootstrap.memory_lock
+  block:
+  - name: remove elastisearch service options directory
+    file:
+      path: /etc/systemd/system/elasticsearch.service.d
+      state: absent
+  - name: reload service configuration
+    systemd:
+      daemon_reload: true
+  when: not ee_config_template_all['bootstrap.memory_lock']
+...

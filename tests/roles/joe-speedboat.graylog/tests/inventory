@@ -1,0 +1,17 @@
+# ansible inventory for testing
+[graylog]
+test01
+test02
+
+[elastic]
+test01
+test02
+test03
+
+[mongo]
+test01
+test02
+test03
+
+[single_node]
+test01

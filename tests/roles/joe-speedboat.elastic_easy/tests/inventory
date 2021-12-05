@@ -1,0 +1,11 @@
+[all:vars]
+ee_cluster_name=graylog
+ee_action_auto_create_index=false
+
+[elastic]
+test01
+test02
+test03
+
+[single_node]
+test01
