@@ -57,6 +57,9 @@
       minutes: "{{ ee_auto_scale_out_seed_wait_min }}"
   when: ((ansible_play_hosts_all|length) > 1) and ee_auto_scale_out
 
+- name: inject seed node {{ (ee_masters|select()|list|unique)[0] }} into es_config 
+  set_fact:
+    es_config: "{{ es_config|combine(ee_config_masters_list) }}"
 - name: run role elastic.elasticsearch role
   include_role:
     name: elastic.elasticsearch

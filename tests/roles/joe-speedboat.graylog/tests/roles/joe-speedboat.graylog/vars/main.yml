@@ -1,0 +1,22 @@
+---
+ 
+# REPO CONFIG
+graylog_repo_graylog_rpm: "https://packages.graylog2.org/repo/packages/graylog-{{ graylog_version }}-repository_latest.rpm"
+
+# MAIL CONFIG
+graylog_transport_email_web_interface_url: "https://{{ graylog_hostname }}"
+
+
+# Packages
+graylog_packages:
+- graylog-server
+- pwgen
+- cronie
+
+graylog_packages_java:
+- java-1.8.0-openjdk-headless
+
+graylog_packages_enterprise: 
+- graylog-enterprise-plugins
+
+...

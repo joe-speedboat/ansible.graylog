@@ -1,0 +1,7 @@
+---
+# vars file for joe-speedboat.nginx-rp
+
+nginx_packages_EL:
+  - nginx
+  - openssl
+...

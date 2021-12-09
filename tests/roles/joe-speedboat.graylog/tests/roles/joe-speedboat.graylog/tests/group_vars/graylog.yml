@@ -1,0 +1,9 @@
+graylog_hostname: "graylog.sun.bitbull.ch"
+graylog_root_timezone: "Europe/Zurich"
+graylog_allow_highlighting: true
+graylog_dashboard_widget_default_cache_time: 60s
+graylog_http_bind_address: "127.0.0.1:9000"
+
+nginx_proxy_pass_url: 'http://{{ graylog_http_bind_address }}'
+
+nginx_ssl_cert_host: "{{ graylog_hostname }}"

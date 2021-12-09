@@ -6,7 +6,7 @@ test02
 [elastic]
 test01
 test02
-test03
+test03 ee_heap_size=6g
 
 [mongo]
 test01

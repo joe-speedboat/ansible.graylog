@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Chris Ruettimann
+  company: Bitbull Community
+  role_name: elastic_easy
+  description: installation and configuration of elasticsearch
+  min_ansible_version: 2.11
+  license: GPLv3
+  platforms:
+  - name: EL
+    versions:
+    - 8
+  galaxy_tags: 
+  - elasticsearch
+# We don't use dependencies in here anymore, look into the ```roles/requirements.yml```
+dependencies: []
+...

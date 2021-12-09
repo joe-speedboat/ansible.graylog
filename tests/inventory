@@ -4,8 +4,8 @@ test01
 test02
 
 [elastic]
-test01
-test02
+test01 ee_heap_size=4g
+test02 ee_heap_size=4g
 test03 ee_heap_size=6g
 
 [mongo]
