@@ -9,7 +9,6 @@ ansible-galaxy install joe-speedboat.graylog
 ```
 
 ## Requirements
-
 * Currently tested with Rocky Linux 9
 * Ansible 2.18 or higher is required for this Ansible Role
 
@@ -21,7 +20,6 @@ ansible-galaxy install joe-speedboat.graylog
 
 Role Variables
 --------------
-
 Variables are speaking or documented in defaults/main.yml   
 
 
