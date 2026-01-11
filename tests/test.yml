@@ -3,6 +3,18 @@
   hosts: graylog.domain.tld
   become: True
   gather_facts: True
+  vars:
+    reconfigure_graylog: False
+    graylog_admin_password: "LogMeIn."
+    graylog_transport_email_enabled: True
+    graylog_transport_email_hostname: mail.domain.tld
+    graylog_transport_email_port: 587
+    graylog_transport_email_use_auth: True
+    graylog_transport_email_use_tls: True
+    graylog_transport_email_auth_username: "smtp@domain.tld"
+    graylog_transport_email_auth_password: "secret..."
+    graylog_transport_email_from_email: "smtp@domain.tld"
+
   pre_tasks:
   - name: Install firewalld
     package:
